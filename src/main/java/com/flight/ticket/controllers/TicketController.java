@@ -1,4 +1,4 @@
-package com.flight.services.controllers;
+package com.flight.ticket.controllers;
 
 import java.util.List;
 
@@ -15,38 +15,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.flight.services.model.Flight;
-import com.flight.services.serviceimpl.FlightServiceImpl;
+import com.flight.ticket.model.Ticket;
+import com.flight.ticket.serviceimpl.TicketServiceImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
-public class FlightController {// Annotation
+public class TicketController {// Annotation
 	@Autowired
-	private FlightServiceImpl flightServiceImpl;
+	private TicketServiceImpl ticketServiceImpl;
 
 	// Save operation
-	@PostMapping("/flight")
-	public Flight saveFlight(@Valid @RequestBody Flight flight) {
-		return flightServiceImpl.saveFlight(flight);
+	@PostMapping("/ticket")
+	public Ticket saveTicket(@Valid @RequestBody Ticket ticket) {
+		return ticketServiceImpl.saveTicket(ticket);
 	}
 
 	// Read operation
-	@GetMapping("/flight")
-	public List<Flight> fetchFlightList() {
-		return flightServiceImpl.fetchFlightList();
+	@GetMapping("/ticket")
+	public List<Ticket> fetchTicketList() {
+		return ticketServiceImpl.fetchTicketList();
 	}
 
 	// Update operation
-	@PutMapping("/flight/{id}")
-	public Flight updateFlight(@RequestBody Flight Flight, @PathVariable("id") Long flightId) {
-		return flightServiceImpl.updateFlight(Flight, flightId);
+	@PutMapping("/ticket/{id}")
+	public Ticket updateTicket(@RequestBody Ticket ticket, @PathVariable("id") Long ticketId) {
+		return ticketServiceImpl.updateTicket(ticket, ticketId);
 	}
 
 	// Delete operation
-	@DeleteMapping("/flight/{id}")
-	public String deleteFlightById(@PathVariable("id") Long flightId) {
-		flightServiceImpl.deleteFlightById(flightId);
+	@DeleteMapping("/ticket/{id}")
+	public String deleteTicketById(@PathVariable("id") Long ticketId) {
+		ticketServiceImpl.deleteTicketById(ticketId);
 		return "Deleted Successfully";
 	}
 }

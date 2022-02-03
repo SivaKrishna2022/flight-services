@@ -28,7 +28,7 @@ public class Schedule {
 	@Size(max = 30)
 	private String arraivalTime;
 	@NotBlank
-	@Size(max = 8)
+	@Size(max = 30)
 	private String departureTime;
 
 	public Schedule(Long id, @NotNull Long airportId, @NotNull Long flightId,
